@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import img from "../assets/images/login/login.svg";
 import { useForm } from "react-hook-form";
-
-const Login = () => {
+const SignUp = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
@@ -16,7 +15,21 @@ const Login = () => {
          shadow-2xl bg-base-100"
         >
           <form className="card-body p-24" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-5xl font-bold text-center pb-4">Login now!</h1>
+            <h1 className="text-5xl font-bold text-center pb-4">
+              Sing Up now!
+            </h1>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="name"
+                placeholder="name"
+                className="input input-bordered"
+                required
+                {...register("name")}
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -31,7 +44,7 @@ const Login = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Confirm Password</span>
               </label>
               <input
                 type="password"
@@ -47,12 +60,12 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Sign Up</button>
             </div>
             <p className="pt-4">
-              Dona&apos;t have any account?{" "}
+              Already have an account?{" "}
               <Link className="text-orange-600" to={`/signup`}>
-                Sign Up
+                Login
               </Link>{" "}
               here
             </p>
@@ -63,4 +76,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
