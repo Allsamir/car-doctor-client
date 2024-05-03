@@ -1,12 +1,9 @@
+import logo from "../assets/logo.svg";
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content">
+    <footer className="footer p-10 text-black">
       <aside>
-        <img
-          src="https://i.pinimg.com/736x/e0/c6/5c/e0c65c581f5b52256992fc601e2138af.jpg"
-          alt=""
-          className="w-40 rounded-full"
-        />
+        <img src={logo} alt="" className="w-40" />
         <p>
           Car Doctor
           <br />
