@@ -1,5 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 const Navbar = () => {
   const navItem = (
@@ -12,9 +14,11 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const { logOut, user } = useContext(AuthContext);
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 py-4">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,14 +45,21 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to={`/`} className="btn btn-ghost text-xl">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className="w-20" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 items-center">{navItem}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-outline btn-error">Appointment</button>
+          <button className="btn btn-outline btn-error mr-4">
+            Appointment
+          </button>
+          {user && (
+            <button className="btn btn-outline btn-error" onClick={logOut}>
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </>
