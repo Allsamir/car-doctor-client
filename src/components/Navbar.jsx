@@ -57,12 +57,19 @@ const Navbar = () => {
             Appointment
           </button>
           {user ? (
-            <button
-              className="btn btn-outline btn-error text-white"
-              onClick={logOut}
-            >
-              Log out
-            </button>
+            <>
+              <Link to={`/bookings`}>
+                <button className="btn btn-outline btn-error text-white mr-4">
+                  Bookings
+                </button>
+              </Link>
+              <button
+                className="btn btn-outline btn-error text-white"
+                onClick={logOut}
+              >
+                Log out
+              </button>
+            </>
           ) : (
             <Link to={`/login`}>
               <button className="btn btn-outline btn-error text-white">

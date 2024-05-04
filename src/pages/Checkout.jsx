@@ -16,6 +16,7 @@ const Checkout = () => {
       price,
       serviceName: service.title,
       serviceID: service._id,
+      img: service.img,
     };
     fetch("http://localhost:3000/checkouts", {
       method: "POST",
@@ -41,7 +42,7 @@ const Checkout = () => {
         >
           <form className="card-body p-24" onSubmit={handleSubmit(onSubmit)}>
             <h1 className="text-5xl font-bold text-center pb-4">
-              Checkout Now for {service.title}
+              Book Now for {service.title}
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="form-control">
@@ -98,7 +99,7 @@ const Checkout = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-block text-white btn-error">
-                Checkout
+                Confirm Booking
               </button>
             </div>
           </form>
