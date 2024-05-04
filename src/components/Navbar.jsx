@@ -52,11 +52,14 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 items-center">{navItem}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-outline btn-error mr-4">
+          <button className="btn btn-outline btn-error text-white mr-4">
             Appointment
           </button>
           {user && (
-            <button className="btn btn-outline btn-error" onClick={logOut}>
+            <button
+              className="btn btn-outline btn-error text-white"
+              onClick={logOut}
+            >
               Logout
             </button>
           )}

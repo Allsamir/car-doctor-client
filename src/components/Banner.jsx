@@ -17,7 +17,7 @@ const Banner = ({ image, slideID, nextSlideID, preSlideID }) => {
             but the majority have suffered alteration in some form
           </p>
           <div className="w-50 space-x-4">
-            <button className="btn btn-error">Discover More</button>
+            <button className="btn btn-error text-white">Discover More</button>
             <button className="btn btn-outline text-white">
               Latest Project
             </button>

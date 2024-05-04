@@ -21,7 +21,7 @@ const About = () => {
             humour, or randomised words which don&apos;t look even slightly
             believable.
           </p>
-          <button className="btn btn-error">Get More Info</button>
+          <button className="btn btn-error text-white">Get More Info</button>
         </div>
         <div className="card shrink-0 lg:w-1/2 shadow-2xl bg-base-100 relative">
           <img src={person} alt="" />
