@@ -22,7 +22,11 @@ const router = createBrowserRouter([
       { path: "/signup", element: <SignUp /> },
       {
         path: "/checkout/:serviceID",
-        element: <Checkout />,
+        element: (
+          <PrivateRoutes>
+            <Checkout />
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/services/${params.serviceID}`),
       },
