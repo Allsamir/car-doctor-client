@@ -14,12 +14,13 @@ const Login = () => {
         const user = userCredential.user;
         setLoading(false);
         console.log(user);
+        alert(`${user.email} successfully login`);
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        alert(`${(errorCode, errorMessage)}`);
       });
   };
   return (

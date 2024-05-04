@@ -52,16 +52,23 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 items-center">{navItem}</ul>
         </div>
         <div className="navbar-end">
+          {<h2 className="mr-4">{user && user.email}</h2>}
           <button className="btn btn-outline btn-error text-white mr-4">
             Appointment
           </button>
-          {user && (
+          {user ? (
             <button
               className="btn btn-outline btn-error text-white"
               onClick={logOut}
             >
-              Logout
+              Log out
             </button>
+          ) : (
+            <Link to={`/login`}>
+              <button className="btn btn-outline btn-error text-white">
+                Login
+              </button>
+            </Link>
           )}
         </div>
       </div>
