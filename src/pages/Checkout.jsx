@@ -28,7 +28,7 @@ const Checkout = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result) {
-          alert("Checkout sucessfully done");
+          alert("Added to Book List sucessfully done");
         }
       })
       .catch((err) => console.error(err));
