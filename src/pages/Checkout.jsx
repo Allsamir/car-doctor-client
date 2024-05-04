@@ -99,7 +99,7 @@ const Checkout = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-block text-white btn-error">
-                Confirm Booking
+                Add to Booking List
               </button>
             </div>
           </form>
