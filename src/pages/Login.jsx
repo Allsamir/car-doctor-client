@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../assets/images/login/login.svg";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const { signIn, loading, setLoading } = useContext(AuthContext);
+  const location = useLocation();
   const onSubmit = (data) => {
     signIn(data.email, data.password)
       .then((userCredential) => {
@@ -16,7 +17,7 @@ const Login = () => {
         setLoading(false);
         console.log(user);
         alert(`${user.email} successfully login`);
-        navigate(`/`);
+        navigate(location.state || "/");
         // ...
       })
       .catch((error) => {
