@@ -52,7 +52,10 @@ const Bookings = () => {
       .get(`http://localhost:3000/checkouts?email=${user?.email}`, {
         withCredentials: true,
       })
-      .then((res) => setBookings(res.data))
+      .then((res) => {
+        console.log(res.data.message);
+        setBookings(res.data);
+      })
       .catch((err) => console.error(err));
   }, [user]);
   return (
