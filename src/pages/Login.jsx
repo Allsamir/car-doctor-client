@@ -3,7 +3,6 @@ import img from "../assets/images/login/login.svg";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
-import axios from "axios";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -15,21 +14,18 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        const userEmail = user.email;
         setLoading(false);
-        axios
-          .post(
-            "http://localhost:3000/jwt",
-            { userEmail },
-            { withCredentials: true },
-          )
-          .then((res) => {
-            if (res.data.success) {
-              alert(`${user.email} successfully login`);
-              navigate(location.state || "/");
-            }
-          })
-          .catch((err) => console.error(err));
+        alert(`${user.email} successfully login`);
+        navigate(location.state || "/");
+        // const userEmail = user.email;
+        // secureAxios
+        //   .post("/jwt", { userEmail })
+        //   .then((res) => {
+        //     if (res.data.success) {
+        //
+        //     }
+        //   })
+        //   .catch((err) => console.error(err));
         // ...
       })
       .catch((error) => {

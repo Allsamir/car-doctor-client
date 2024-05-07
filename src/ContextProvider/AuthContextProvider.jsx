@@ -7,10 +7,12 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../config/firebase.config";
+import useAxios from "../hooks/useAxios";
 export const AuthContext = createContext(null);
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const secureAxios = useAxios();
   const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
     setLoading(true);
@@ -31,14 +33,32 @@ const AuthContextProvider = ({ children }) => {
       });
   };
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { userEmail: userEmail };
       setLoading(false);
+      setUser(currentUser);
+      if (currentUser) {
+        console.log(currentUser);
+        secureAxios
+          .post("/jwt", loggedUser)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => console.error(err));
+      } else {
+        secureAxios
+          .post("/logout", loggedUser)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => console.error(err));
+      }
     });
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [secureAxios]);
   const authInfo = {
     user,
     loading,
