@@ -9,7 +9,7 @@ const Bookings = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure?");
     if (proceed) {
-      fetch(`http://localhost:3000/bookings/${id}`, {
+      fetch(`https://car-doctor-server-ecru-three.vercel.app/bookings/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -25,7 +25,7 @@ const Bookings = () => {
   const handleBooking = (id) => {
     const procced = confirm(`You are going to book this service`);
     if (procced) {
-      fetch(`http://localhost:3000/bookings/${id}`, {
+      fetch(`https://car-doctor-server-ecru-three.vercel.app/bookings/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

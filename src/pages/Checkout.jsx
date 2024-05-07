@@ -18,7 +18,7 @@ const Checkout = () => {
       serviceID: service._id,
       img: service.img,
     };
-    fetch("http://localhost:3000/checkouts", {
+    fetch("https://car-doctor-server-ecru-three.vercel.app/checkouts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
