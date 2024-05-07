@@ -22,6 +22,7 @@ const SignUp = () => {
         const errorMessage = error.message;
         // ..
         alert(`${(errorCode, errorMessage)}`);
+        setLoading(false);
       });
   };
   return (

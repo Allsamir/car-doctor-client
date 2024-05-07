@@ -50,9 +50,7 @@ const Bookings = () => {
 
   useEffect(() => {
     secureAxios
-      .get(`/checkouts?email=${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(`/checkouts?email=${user?.email}`)
       .then((res) => {
         if (res) {
           console.log(res.data.message);
