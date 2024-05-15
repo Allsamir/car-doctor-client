@@ -7,10 +7,20 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <NavLink to={`/`}>Home</NavLink>
+        <NavLink
+          className={`btn btn-outline btn-error text-white mr-4`}
+          to={`/`}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to={`/about`}>About</NavLink>
+        <NavLink
+          className={`btn btn-outline btn-error text-white`}
+          to={`/about`}
+        >
+          About
+        </NavLink>
       </li>
     </>
   );
